@@ -1,0 +1,16 @@
+
+resource app_flags B_SINGLE_LAUNCH;
+
+resource app_version {
+	major = 1,
+	middle = 0,
+	minor = 0,
+
+	variety = B_APPV_DEVELOPMENT,
+	internal = 16777216,
+
+	short_info = "Random symbol sequence generator",
+	long_info = "©2005-2008 Sergey S. Kazenyuk"
+};
+
+resource app_signature "application/x-vnd.kazenyuk-randomizer";
