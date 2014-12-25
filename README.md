@@ -1,7 +1,7 @@
 Randomizer
 ==========
 
-Random symbol sequence (e.g. password) generator for HaikuOS
+Random symbol sequence (e.g. password) generator for Haiku
 
 Requirements:
 * 1. BeOS R5 or newer
