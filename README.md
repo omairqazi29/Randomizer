@@ -6,7 +6,7 @@ Randomizer
 Random symbol sequence (e.g. password) generator for Haiku
 
 Instructions:
-  * Clone the repo and run the following:
+  * Clone the repo and `cd` to the folder where you cloned it and run the following:
   ```
   cd src
   make
