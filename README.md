@@ -6,10 +6,12 @@ Randomizer
 Random symbol sequence (e.g. password) generator for Haiku
 
 Instructions:
-  * Clone the repo and run the following:\
-  `cd src
+  * Clone the repo and run the following:
+  ```
+  cd src
   make
-  ./Randomizer`
+  ./Randomizer
+  ```
 
 Requirements:
 * 1. BeOS R5 or newer
