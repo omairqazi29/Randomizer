@@ -11,6 +11,7 @@
 //========================================================================
 
 #include <string>
+#include <StringView.h>
 
 #include "AppWindow.h"
 #include "App.h"
@@ -28,55 +29,75 @@ AppWindow::AppWindow(BRect frame)
 	MainView = new AppView(Bounds());
 	AddChild(MainView);
 	
-	PassOut = new RandoTextView(BRect(5,25,200,40), "PassOut",
-		BRect(0,0,200,30), be_bold_font, NULL, B_FOLLOW_LEFT|B_FOLLOW_TOP,
+	// Result Label:
+	BStringView *result = new BStringView(BRect(100,30,11,11),"resultlabel","RESULT");
+	result->ResizeToPreferred();
+	MainView->AddChild(result);
+	
+	// Result:
+	PassOut = new RandoTextView(BRect(5,50,245,80), "PassOut",
+		BRect(5,0,245,60), be_bold_font, NULL, B_FOLLOW_LEFT|B_FOLLOW_TOP,
 		B_WILL_DRAW|B_NAVIGABLE);
 	PassOut->MakeEditable(false);
 	MainView->AddChild(PassOut);
-			
-	ParamsBox = new RandoBox(BRect(5,50,200,146), "ParamsBox", "", B_FOLLOW_LEFT|B_FOLLOW_TOP,
+	
+	// Parameters Label:
+	BStringView *param = new BStringView(BRect(90,90,11,11),"paramlabel","Parameters:");
+	param->ResizeToPreferred();
+	MainView->AddChild(param);
+	
+	// Parameters Box:
+	ParamsBox = new RandoBox(BRect(5,100,245,210), "ParamsBox", "", B_FOLLOW_LEFT|B_FOLLOW_TOP,
 		B_WILL_DRAW|B_NAVIGABLE, B_FANCY_BORDER);
 	MainView->AddChild(ParamsBox);
 	
-	PassLength = new BTextControl(BRect(5,5,189,40), "PassLength", "Password length", NULL,
+	// Length Label:
+	BStringView *length = new BStringView(BRect(60,15,100,40),"lengthlabel","Length:");
+	ParamsBox->AddChild(length);
+	
+	// Length TextBox:
+	PassLength = new BTextControl(BRect(70,15,140,40), "PassLength", "Password length", NULL,
 		new BMessage(SEQ_LEN_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_NAVIGABLE);
 	ParamsBox->AddChild(PassLength);
 	PassLength->SetText("11");
-	//PassLength->AttachedToWindow();
-	//PassLength->ResizeToPreferred();
 	
-	UpperCaseCB = new BCheckBox(BRect(5,30,85,30), "UpperCaseCB", "Upper case",
+	// Upper Case CheckBox:
+	UpperCaseCB = new BCheckBox(BRect(5,40,100,30), "UpperCaseCB", "Upper case",
 		new BMessage(UCASE_CB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	UpperCaseCB->SetValue(B_CONTROL_ON);
 	ParamsBox->AddChild(UpperCaseCB);
 	
-	LowerCaseCB = new BCheckBox(BRect(5,50,85,30), "LowerCaseCB", "Lower case",
+	// Lower Case CheckBox:
+	LowerCaseCB = new BCheckBox(BRect(5,60,100,30), "LowerCaseCB", "Lower case",
 		new BMessage(LCASE_CB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	LowerCaseCB->SetValue(B_CONTROL_ON);
 	ParamsBox->AddChild(LowerCaseCB);
 	
-	NumCB = new BCheckBox(BRect(5,70,85,30), "NumCB", "Numbers",
+	// Numbers CheckBox:
+	NumCB = new BCheckBox(BRect(5,80,85,30), "NumCB", "Numbers",
 		new BMessage(NUMBERS_CB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	NumCB->SetValue(B_CONTROL_ON);
 	ParamsBox->AddChild(NumCB);
 	
-	SpecSymbCB = new BCheckBox(BRect(105,30,185,30), "SpecSymbCB", "Special",
+	// Special Symbols CheckBox:
+	SpecSymbCB = new BCheckBox(BRect(120,40,235,30), "SpecSymbCB", "Special Symbols",
 		new BMessage(SPEC_SYMB_CB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	ParamsBox->AddChild(SpecSymbCB);
 	
 	//Custom symbols checkbox
-	CustSymbCB = new BCheckBox(BRect(105,50,185,30), "CustSymbCB", "Custom:",
+	CustSymbCB = new BCheckBox(BRect(120,60,200,30), "CustSymbCB", "Custom:",
 		new BMessage(CUST_SYMB_CB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	ParamsBox->AddChild(CustSymbCB);
 	
 	//Custom symbols input field
-	CustSymb = new BTextControl(BRect(110,70,189,40), "CustSymb", "", NULL,
+	CustSymb = new BTextControl(BRect(130,80,204,40), "CustSymb", "", NULL,
 		new BMessage(CUST_SYMB_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_NAVIGABLE);
 	CustSymb->SetDivider(0);
 	CustSymb->SetEnabled(false);
 	ParamsBox->AddChild(CustSymb);	
-			
-	GenerateBtn = new BButton(BRect(70,151,65,30), "GenBtn", "Generate",
+	
+	//Generate Button		
+	GenerateBtn = new BButton(BRect(90,220,65,30), "GenBtn", "Generate",
 		new BMessage(GEN_BTN_MSG), B_NAVIGABLE);
 	GenerateBtn->MakeDefault(true);
 	GenerateBtn->ResizeToPreferred();
@@ -166,4 +187,3 @@ void AppWindow::SetupMenuBar()
 		'Q', 0);
 	FileMenu->AddItem(QuitFileMenuItem);
 }
-
