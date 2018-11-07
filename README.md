@@ -1,7 +1,7 @@
 Randomizer
 ==========
 
-![screenshot](screenshot.png)
+![screenshot](screenshot1.PNG)
 
 Random symbol sequence (e.g. password) generator for Haiku
 
