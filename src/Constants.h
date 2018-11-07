@@ -10,7 +10,7 @@
 
 #define App_Name "Randomizer"
 #define App_Sig "application/x-vnd.kazenyuk-randomizer"
-#define App_Version "1.0.0b1"
+#define App_Version "1.1.0"
 
 //====================================================================
 // Message commands (message->what)
