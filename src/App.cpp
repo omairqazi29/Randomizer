@@ -30,7 +30,7 @@ App::App() : BApplication(App_Sig)
 void App::ReadyToRun()
 {
 	BRect MainWindowRect;
-	MainWindowRect.Set(50,50,255,231);
+	MainWindowRect.Set(50,50,300,310);
 	MainWindow = new AppWindow(MainWindowRect);
 	MainWindow->Show();
 }
@@ -48,8 +48,6 @@ void App::AboutRequested()
 				"Version "App_Version"\n"
 				"Compiled on: "__DATE__" " __TIME__"\n"
 				"\n"
-				"Project page:\n"
-				"\thttp://randomizer.googlecode.com/\n"
 				"You may also send your bug reports and comments to:\n"
 				"\tkazenyuk@gmail.com\n"
 				"\n"
