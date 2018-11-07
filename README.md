@@ -14,11 +14,9 @@ Build Instructions:
   ```
 
 Requirements:
-* 1. BeOS R5 or newer
+* Haiku R1/beta1 or newer
 
 Changes since last release:
 * See ChangeLog.
 
-License: MIT. See License for details.
-
-Project webpage: http://randomizer.googlecode.com/
+License: MIT. See LICENSE for details.
