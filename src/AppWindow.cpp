@@ -40,14 +40,9 @@ AppWindow::AppWindow(BRect frame)
 		B_WILL_DRAW|B_NAVIGABLE);
 	PassOut->MakeEditable(false);
 	MainView->AddChild(PassOut);
-	
-	// Parameters Label:
-	BStringView *param = new BStringView(BRect(90,90,11,11),"paramlabel","Parameters:");
-	param->ResizeToPreferred();
-	MainView->AddChild(param);
-	
+
 	// Parameters Box:
-	ParamsBox = new RandoBox(BRect(5,100,245,210), "ParamsBox", "", B_FOLLOW_LEFT|B_FOLLOW_TOP,
+	ParamsBox = new RandoBox(BRect(5,100,245,210), "ParamsBox", "Parameters", B_FOLLOW_LEFT|B_FOLLOW_TOP,
 		B_WILL_DRAW|B_NAVIGABLE, B_FANCY_BORDER);
 	MainView->AddChild(ParamsBox);
 	
