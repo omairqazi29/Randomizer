@@ -46,13 +46,9 @@ AppWindow::AppWindow(BRect frame)
 		B_WILL_DRAW|B_NAVIGABLE, B_FANCY_BORDER);
 	MainView->AddChild(ParamsBox);
 	
-	// Length Label:
-	BStringView *length = new BStringView(BRect(60,15,100,40),"lengthlabel","Length:");
-	ParamsBox->AddChild(length);
-	
 	// Length TextBox:
-	PassLength = new BTextControl(BRect(70,15,140,40), "PassLength", "Password length", NULL,
-		new BMessage(SEQ_LEN_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_NAVIGABLE);
+	PassLength = new BTextControl(BRect(25,15,220,40), "PassLength", "Password length", NULL,
+		new BMessage(SEQ_LEN_MSG), B_FOLLOW_LEFT|B_FOLLOW_TOP, B_WILL_DRAW | B_NAVIGABLE);
 	ParamsBox->AddChild(PassLength);
 	PassLength->SetText("11");
 	
