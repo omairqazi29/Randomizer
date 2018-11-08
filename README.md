@@ -17,6 +17,6 @@ Requirements:
 * Haiku R1/beta1 or newer
 
 Changes since last release:
-* See ChangeLog.
+* Run `git log`
 
 License: MIT. See LICENSE for details.
